@@ -1,0 +1,16 @@
+<div id="countown-screen" ng-show="state===COUNTDOWN">
+    <p>{{countdownLabel}}</p>
+</div>
+<div id="button-screen" ng-show="state===BUTTON">
+    <div id="pull-button"><p>TAP TO PULL</p></div>
+    <p>uid: {{uid}}</p>
+    <p>team: {{team}}</p>
+    <p>height: {{height}}</p>
+</div>
+<div id="waiting-screen" ng-show="state===WAIT">
+    <p>Waiting for game to start</p>
+</div>
+<div id="timeout-screen" ng-show="state===TIMEOUT">
+    <p>you've timed out. PLease restart when ready.</p>
+    <button ng-click="restartGame()">restart game</button>
+</div>

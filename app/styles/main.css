@@ -1,0 +1,16 @@
+html, body { height: 100%; overflow:hidden;}
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+.container,.ng-scope {min-height: 100%;}
+
+/* SPECTATOR */
+#stage{ width: 1270px; background-color:white; overflow-x: hidden; display: block; margin-left: auto; margin-right: auto; min-height: 100%; -webkit-box-shadow: 0px 0px 25px 5px rgba(0,0,0,.5); -moz-box-shadow: 0px 0px 25px 5px rgba(0,0,0,.5); box-shadow: 0px 0px 25px 5px rgba(0,0,0,.5);}
+#cracker{ background:url(../images/cracker.png); background-position:-625px 0px; width:2500px; height:388px; background-repeat: no-repeat;}
+#pull-button { min-width:100%; min-height:100%; background-color:azure;}
+#pull-button p { color:black; font-size: 30px; text-align: center; }
+#pull-button:active { min-width:100%; min-height:100%; background-color:aquamarine;}

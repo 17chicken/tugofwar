@@ -1,0 +1,10 @@
+{
+  "name": "TugOfWar",
+  "version": "1.0.0",
+  "description": "///nodejs work",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.11.0",
+    "socket.io": "^1.3.2"
+  }
+}
