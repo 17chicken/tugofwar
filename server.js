@@ -111,7 +111,7 @@ var game_socket = io.on('connection', function (socket) {
         
         if(_currentRepeat < MAX_REPEATS){
             game_socket.emit('tug:emitter', {
-                ropePosition:_score
+                score:_score
             });
         }
     }
