@@ -15,6 +15,7 @@ angular.module('tugofwarApp')
         } else {
 //            $location.path('/spectator');
             $location.path('/player');
+            console.log('desktop player');
         }
 
         function isMobile() {
