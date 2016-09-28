@@ -15,7 +15,7 @@ angular.module('tugofwarApp')
         $scope.countdownLabel = 3;
     
         // STATES
-        $scope.state = 'wait'; // wait by default
+        $scope.state = 'button'; // wait by default
         $scope.WAIT = 'wait';
         $scope.COUNTDOWN = 'countdown';
         $scope.BUTTON = 'button';
@@ -46,23 +46,19 @@ angular.module('tugofwarApp')
                 // you joined
                 $scope.team = data.newplayer.team;
                 isGameInProgress = data.isGameinProgress;
-                socket.on('startgame:emitter', onGameStarted);
                 
-                alert('onSignupHandler : '+isGameInProgress);
-                
-                if(isGameInProgress){
-                    // go straight to countdown
-                    setState($scope.COUNTDOWN);
+                if(!data.isGameinProgress){
+                    socket.on('startgame:emitter', onGameStarted);
+                    socket.emit('startgame:action', {});
                 }else{
-                    // go to waiting screen
-                    setState($scope.WAIT);
+                    setState($scope.COUNTDOWN);
                 }
                 
             } else {
                 //someone else joined
             }
         }
-    
+        
         function onGameStarted(data){
             setState($scope.COUNTDOWN);
         }
@@ -118,7 +114,6 @@ angular.module('tugofwarApp')
         }
     
         function startCountdownScreen(){
-            //add any extra functionality
             countdownTimer = setInterval(function(){
                 if($scope.countdownLabel === 1)
                 {
@@ -139,9 +134,16 @@ angular.module('tugofwarApp')
         }
     
         function startButtonScreen() {
+            socket.on('tug:emitter', onTugHandler);
+            
             //add any extra functionality
             socket.on('kicked:emitter', onPlayerKickedHandler);
             pullH.on('tap', onPullHandler);
+        }
+    
+        function onTugHandler(data){
+    //        console.log(data.ropePosition);
+             data.score
         }
     
         function startTimeoutScreen(){

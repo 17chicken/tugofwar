@@ -2,10 +2,30 @@
     <p>{{countdownLabel}}</p>
 </div>
 <div id="button-screen" ng-show="state===BUTTON">
-    <div id="pull-button"><p>TAP TO PULL</p></div>
-    <p>uid: {{uid}}</p>
-    <p>team: {{team}}</p>
-    <p>height: {{height}}</p>
+    <div class="player-header">
+
+        <div class="player-team">You're on the BLUE team</div>
+
+        <div id="red-header" class="team-header">
+            <div class="title">
+                <p>RED</p>
+            </div>
+        </div>
+
+        <div id="blue-header" class="team-header">
+            <div class="title">
+                <p>BLUE</p>
+            </div>
+        </div>
+        
+        <div class="bar-holder">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%">
+            </div>
+        </div>
+
+<!--        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>-->
+    </div>
+    <button type="button" class="btn btn-default">TAP<br>TO<br>PULL</button>
 </div>
 <div id="waiting-screen" ng-show="state===WAIT">
     <p>Waiting for game to start</p>

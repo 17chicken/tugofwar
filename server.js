@@ -17,8 +17,8 @@ app.use(express.static(__dirname + '/app'));
 
 var players = []; //list of current players
 var _refreshRopeInterval;
-var _ropePosition = 0;
-var _oldRopePosition = 0;
+var _score = 0;
+var _oldScore = 0;
 var _strength = 10;
 
 var MAX_REPEATS = 50;
@@ -92,9 +92,9 @@ var game_socket = io.on('connection', function (socket) {
         });
         
         if(data.team === 0){
-            _ropePosition -= _strength;
+            _score -= _strength;
         }else{
-            _ropePosition += _strength;
+            _score += _strength;
         }
 	});
     
@@ -102,16 +102,16 @@ var game_socket = io.on('connection', function (socket) {
         
         checkPlayersTicker();
         
-        if(_oldRopePosition === _ropePosition){
+        if(_oldScore === _score){
             _currentRepeat++;
         }else{
-             _oldRopePosition = _ropePosition;
+             _oldScore = _score;
             _currentRepeat = 0;
         }
         
         if(_currentRepeat < MAX_REPEATS){
             game_socket.emit('tug:emitter', {
-                ropePosition:_ropePosition
+                ropePosition:_score
             });
         }
     }
