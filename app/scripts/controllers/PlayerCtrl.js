@@ -146,6 +146,7 @@ angular.module('tugofwarApp')
         function onTugHandler(data){
     //        console.log(data.ropePosition);
             $scope.score = 50 + data.score;
+            console.log("score: " + data.score);
             document.getElementById("score-bar").style.width = $scope.score + "%";
         }
     
