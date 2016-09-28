@@ -120,11 +120,11 @@ var game_socket = io.on('connection', function (socket) {
         players.forEach(function (player, index) {
             if(player.ticker > AWAY_TIMEOUT)
             {
-                console.log(player.uid + " has timed out!");
+               /* console.log(player.uid + " has timed out!");
                 
                 kickPlayer(player); // kick player out and notify him
                 
-                players.splice(index, 1); // remove player from the list
+                players.splice(index, 1); // remove player from the list*/
                 
             }else{
                 player.ticker++;
