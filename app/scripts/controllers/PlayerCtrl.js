@@ -27,7 +27,6 @@ angular.module('tugofwarApp')
     
         function init(){
             
-            alert('player init');
             $scope.uid = generateUID();
             socket.on('signup:emitter', onSignupHandler);
             socket.emit('signup:action', {
@@ -42,12 +41,14 @@ angular.module('tugofwarApp')
         }
 
         function onSignupHandler(data) {
-            alert('onSignupHandler : '+data.newplayer.uid);
+            
             if (data.newplayer.uid === $scope.uid) {
                 // you joined
                 $scope.team = data.newplayer.team;
                 isGameInProgress = data.isGameinProgress;
                 socket.on('startgame:emitter', onGameStarted);
+                
+                alert('onSignupHandler : '+isGameInProgress);
                 
                 if(isGameInProgress){
                     // go straight to countdown
