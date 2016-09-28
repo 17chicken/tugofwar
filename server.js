@@ -19,7 +19,7 @@ var players = []; //list of current players
 var _refreshRopeInterval;
 var _score = 0;
 var _oldScore = 0;
-var _strength = 10;
+var _strength = 1;
 
 var MAX_REPEATS = 50;
 var _currentRepeat = 0;

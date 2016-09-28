@@ -20,6 +20,8 @@ angular.module('tugofwarApp')
         $scope.COUNTDOWN = 'countdown';
         $scope.BUTTON = 'button';
         $scope.TIMEOUT = 'timeout';
+    
+        $scope.score = 0;
 
         var pullH;
         var isGameInProgress = false;
@@ -65,7 +67,7 @@ angular.module('tugofwarApp')
     
         function onPlayerKickedHandler(data) {
             if (data.uid === $scope.uid) {
-                alert('you just got kicked son!');
+                alert('you just got kicked son! Refresh your page to get back in.');
                 onKicked();
             }
         }
@@ -143,7 +145,8 @@ angular.module('tugofwarApp')
     
         function onTugHandler(data){
     //        console.log(data.ropePosition);
-             data.score
+            $scope.score = 50 + data.score;
+            document.getElementById("score-bar").width($scope.score + "%")
         }
     
         function startTimeoutScreen(){
@@ -154,12 +157,12 @@ angular.module('tugofwarApp')
         angular.element($window).bind('resize', onResizeApplyHandler);
 
         function onResizeHandler() {
-            $scope.height = $window.innerHeight;
+            /*$scope.height = $window.innerHeight;
             $scope.width = $window.innerWidth;
             TweenLite.set(document.getElementById('pull-button'), {
                 height: $scope.height + "px",
                 width: $scope.width + "px"
-            });
+            });*/
         }
     
         function onResizeApplyHandler(){
