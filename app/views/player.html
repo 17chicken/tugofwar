@@ -4,17 +4,15 @@
 <div id="button-screen" ng-show="state===BUTTON">
     <div class="player-header">
 
-        <div class="player-team">You're on the BLUE team</div>
-
         <div id="red-header" class="team-header">
             <div class="title">
-                <p>RED</p>
+                <p>RED<br>TEAM</p>
             </div>
         </div>
 
         <div id="blue-header" class="team-header">
             <div class="title">
-                <p>BLUE</p>
+                <p>BLUE<br>TEAM</p>
             </div>
         </div>
         
@@ -25,7 +23,8 @@
 
 <!--        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>-->
     </div>
-    <button id="pull-button" type="button" class="btn btn-default">TAP<br>TO<br>PULL</button>
+    <div class="player-team"><p>You're on the {{team>0?"Blue":"Red"}} team</p></div>
+    <button id="pull-button" type="button" class="btn btn-default">TAP TO PULL</button>
 </div>
 <div id="waiting-screen" ng-show="state===WAIT">
     <p>Waiting for game to start</p>
