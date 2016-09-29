@@ -22,6 +22,8 @@ angular.module('tugofwarApp')
         $scope.TIMEOUT = 'timeout';
     
         $scope.score = 0;
+    
+        $scope.teamLabel = "Blue";
 
         var pullH;
         var isGameInProgress = false;
@@ -47,6 +49,7 @@ angular.module('tugofwarApp')
             if (data.newplayer.uid === $scope.uid) {
                 // you joined
                 $scope.team = data.newplayer.team;
+                $scope.teamLabel = data.newplayer.team > 0 ? "BLUE":"RED";
                 isGameInProgress = data.isGameinProgress;
                 
                 if(!data.isGameinProgress){
