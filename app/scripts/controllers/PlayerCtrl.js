@@ -49,14 +49,14 @@ angular.module('tugofwarApp')
             if (data.newplayer.uid === $scope.uid) {
                 // you joined
                 $scope.team = data.newplayer.team;
-                $scope.teamLabel = data.newplayer.team > 0 ? "BLUE":"RED";
+                $scope.teamLabel = data.newplayer.team > 0 ? "RED":"BLUE";
                 isGameInProgress = data.isGameinProgress;
                 
                 if(!data.isGameinProgress){
                     socket.on('startgame:emitter', onGameStarted);
                     socket.emit('startgame:action', {});
                 }else{
-                    setState($scope.COUNTDOWN);
+                    setState($scope.BUTTON);
                 }
                 
             } else {
