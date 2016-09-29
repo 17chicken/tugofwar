@@ -65,7 +65,7 @@ angular.module('tugofwarApp')
         }
         
         function onGameStarted(data){
-            setState($scope.COUNTDOWN);
+            setState($scope.BUTTON);
         }
     
         function onPlayerKickedHandler(data) {
